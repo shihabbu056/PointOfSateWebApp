@@ -1,0 +1,6 @@
+G:\BITM All App\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\bin\Debug\PointOfSaleManagement.Models.Contracts.dll
+G:\BITM All App\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\bin\Debug\PointOfSaleManagement.Models.Contracts.pdb
+G:\BITM All App\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\obj\Debug\PointOfSaleManagement.Models.Contracts.csprojAssemblyReference.cache
+G:\BITM All App\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\obj\Debug\PointOfSaleManagement.Models.Contracts.csproj.CoreCompileInputs.cache
+G:\BITM All App\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\obj\Debug\PointOfSaleManagement.Models.Contracts.dll
+G:\BITM All App\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\obj\Debug\PointOfSaleManagement.Models.Contracts.pdb

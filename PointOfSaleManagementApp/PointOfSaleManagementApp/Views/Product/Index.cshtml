@@ -1,0 +1,70 @@
+﻿@using System.Web.Optimization
+@model IEnumerable<PointOfSaleManagementApp.ViewModels.ProductViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int sl = 1;
+}
+
+<h2>Product</h2>
+<p>@Html.ActionLink("Add Product", "Add", "Product")</p>
+
+<table class="table table-bordered table-striped" id="myTable">
+    <thead>
+        <tr>
+            <th>@Html.Raw("SL")</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Code)</th>
+            <th>@Html.DisplayNameFor(model => model.CategoryId)</th>
+            <th>@Html.DisplayNameFor(model => model.ReorderLevel)</th>
+            <th>@Html.DisplayNameFor(model => model.Description)</th>
+            <th>@Html.DisplayNameFor(model => model.Image)</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@(sl++)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Code)</td>
+                <td>@Html.DisplayFor(modelItem => item.Category.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.ReorderLevel)</td>
+                <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                <td>
+                    @{
+                        var base64 = Convert.ToBase64String(item.Image);
+                        var imgSrc = string.Format("data:image/gif;base64,{0}", base64);
+                    }
+                    <img src='@imgSrc' style="width: 50px; height:50px;"/>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<link href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts
+{
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+
+    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        function activatejQueryTable() {
+            $("#productTable").DataTable();
+        }
+
+        
+            
+        
+        $(function() {
+            activatejQueryTable();
+        });
+
+    </script>
+}

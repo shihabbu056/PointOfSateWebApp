@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSaleManagementApp", "PointOfSaleManagementApp\PointOfSaleManagementApp.csproj", "{A70ACA39-770B-4FA4-A617-6E25CE615BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSaleManagement.Bll", "PointOfSaleManagement.Bll\PointOfSaleManagement.Bll.csproj", "{9080AF50-376D-4B3E-9D1A-D734B9DCFED3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSaleManagement.Repository", "PointOfSaleManagement.Repository\PointOfSaleManagement.Repository.csproj", "{7F76334E-6E04-44E0-A950-A1331F3CB4D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSaleManagement.Models", "PointOfSaleManagement.Models\PointOfSaleManagement.Models.csproj", "{47590451-5CCF-4CB4-9CBD-8D98BF7F30DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSaleManagement.DatabaseContext", "PointOfSaleManagement.DatabaseContext\PointOfSaleManagement.DatabaseContext.csproj", "{6AFDAE9A-EA20-4361-B090-87B414F7D788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSaleManagement.Models.Contracts", "PointOfSaleManagement.Models.Contracts\PointOfSaleManagement.Models.Contracts.csproj", "{C25D5C40-FB39-43E8-8F2C-517597467F8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A70ACA39-770B-4FA4-A617-6E25CE615BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A70ACA39-770B-4FA4-A617-6E25CE615BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A70ACA39-770B-4FA4-A617-6E25CE615BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A70ACA39-770B-4FA4-A617-6E25CE615BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9080AF50-376D-4B3E-9D1A-D734B9DCFED3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9080AF50-376D-4B3E-9D1A-D734B9DCFED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9080AF50-376D-4B3E-9D1A-D734B9DCFED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9080AF50-376D-4B3E-9D1A-D734B9DCFED3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F76334E-6E04-44E0-A950-A1331F3CB4D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F76334E-6E04-44E0-A950-A1331F3CB4D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F76334E-6E04-44E0-A950-A1331F3CB4D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F76334E-6E04-44E0-A950-A1331F3CB4D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47590451-5CCF-4CB4-9CBD-8D98BF7F30DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47590451-5CCF-4CB4-9CBD-8D98BF7F30DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47590451-5CCF-4CB4-9CBD-8D98BF7F30DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47590451-5CCF-4CB4-9CBD-8D98BF7F30DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AFDAE9A-EA20-4361-B090-87B414F7D788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AFDAE9A-EA20-4361-B090-87B414F7D788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AFDAE9A-EA20-4361-B090-87B414F7D788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AFDAE9A-EA20-4361-B090-87B414F7D788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C25D5C40-FB39-43E8-8F2C-517597467F8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C25D5C40-FB39-43E8-8F2C-517597467F8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C25D5C40-FB39-43E8-8F2C-517597467F8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C25D5C40-FB39-43E8-8F2C-517597467F8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC258B66-9379-43C5-8BB1-61DF79036D9F}
+	EndGlobalSection
+EndGlobal

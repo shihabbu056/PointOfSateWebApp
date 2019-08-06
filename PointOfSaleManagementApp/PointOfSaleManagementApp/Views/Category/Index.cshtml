@@ -1,0 +1,33 @@
+﻿@model IEnumerable<PointOfSaleManagement.Models.Models.Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Category</h2>
+<p>@Html.ActionLink("Add Category", "Add", "Category")</p>
+@{ int sl = 1;}
+<table class="table table-bordered table-striped" id="myTable">
+    <thead>
+    <tr>
+        <th>SL</th>
+        <th>@Html.DisplayNameFor(model => model.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.Code)</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@(sl++)</td>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Code)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.Id})|
+                @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

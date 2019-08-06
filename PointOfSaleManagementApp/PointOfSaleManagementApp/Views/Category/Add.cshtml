@@ -1,0 +1,88 @@
+﻿
+@model PointOfSaleManagementApp.ViewModels.CategoryViewModel
+@{
+    /**/
+
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="main-wrapper">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-white">
+                @*<h2>Add</h2>*@
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @*<form class="form-horizontal">*@
+                    <div class="panel-heading clearfix">
+                        <h3 class="panel-title">Category</h3>
+                    </div>
+                    <div class="form-horizontal">
+
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", id="category_name" } })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Customize Code", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-sm-10">
+                                <input type="checkbox" id="categoryCode" />
+                            </div>
+                        </div>
+                        <div class="form-group" id="categoryTextBoxCode">
+                            @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control", PlaceHolder = "Category Code", Enable="false", id="category_code" } })
+                                @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-success" />
+                            </div>
+                        </div>
+
+                    </div>
+                    @*</form>*@
+                }
+                <div>
+                    <p style="margin-left: 10px;">@Html.ActionLink("Back to List", "Index")</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/scripts/plugins/jquery-validation/jquery.validate.js"></script>
+
+    @*<script src="~/scripts/jquery.js"></script>*@
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>*@
+
+    @*<script>
+        $(document).ready(function() {
+            categoryTextBoxCodeShow();
+            $("#category_name").keyup(function() {
+                var categoyNameTextBox = $("#category_name").val();
+                $("#category_code").val(categoyNameTextBox);
+            });
+        });
+        function categoryTextBoxCodeShow() {
+            var checkBox = document.getElementById("categoryCode").val();
+            var textBox = document.getElementById("categoryTextBoxCode").val();
+            if ((checkBox).prop("checkbox") !== true) {
+                $(textBox).hide();
+            } else {
+                $(textBox).show();
+            }
+        }
+
+
+    </script>*@
+
+
+

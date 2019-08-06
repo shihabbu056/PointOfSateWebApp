@@ -1,0 +1,164 @@
+﻿@model PointOfSaleManagementApp.ViewModels.ProductViewModel
+
+@{
+    /**/
+
+    /**/
+
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="col-md-10" style="background-color: #22BAA0;">
+    <div class="row">
+        <h1 class="panel-title" style="margin: 5px; color: black; font-size: 25px;">
+            <b>Product Edit</b>
+        </h1>
+        <div class="title">
+            <ol class="breadcrumb" style="background-color: #22BAA0; margin-bottom: 10px; font-size: 15px;">
+                <li><a href="#">Home</a></li>
+                <li class="active">Action"</li>
+            </ol>
+        </div>
+        <hr style="margin-top: 4px; margin-bottom: 5px;" />
+    </div>
+    <div class="row" style="background-color: white">
+        @using (Html.BeginForm("Edit", "Product", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+        <div class="form-horizontal" style="margin-top: 25px; margin-right: 8px;">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+            <div class="col-md-7">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Code, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Code, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("CategoryId", null, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ReorderLevel, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.ReorderLevel, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ReorderLevel, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group" style="padding-right: 10%;">
+                    @Html.Label("Product Photo")
+                    <div id="imgPreview" class="thumbnail" style="display: block">
+                        @{
+                            var base64 = Convert.ToBase64String(Model.Image);
+                            var imgSrc = string.Format("data:image/gif;base64,{0}", base64);
+                        }
+                        <img src="@imgSrc" class="img-responsive" id="targetImg" style="height: 200px; width: 200px" />
+                        <div class="caption">
+                            <a href="#" id="clearPreview" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
+                            <span id="description"></span>
+                        </div>
+                        @*<a href="#" class="btn btn-default" onclick="Uploadimage()">Upload</a>*@
+                    </div>
+                </div>
+                <div class="btn btn-primary ">
+                    <input type="file" name="Image" id="fileUpload" onclick="FileUpload()" accept=".png,.jpg,.jpeg,.gif,.tif" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-1 col-md-10" style="margin-left: 152px;">
+                    <input type="submit" value="Create" class="btn btn-success" style="width: 200px; font-size: 15px;" />
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+
+<script src="~/scripts/plugins/jquery-validation/jquery.validate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script>
+    //Image show function method use code
+
+    //function ShowImagePreview(imageUploader, previewImage) {
+    //    if (imageUploader.files && imageUploader.files[0]) {
+    //        var reader = new FileReader();
+    //        reader.onload = function (e) {
+    //            $(previewImage).attr('src', e.target.result);
+    //        }
+    //        reader.readAsDataURL(imageUploader.files[0]);
+    //    }
+    //}
+    //$(function() {
+    //    //ShowImagePreview();
+    //});
+
+    //Image Upload Second Method and Project image save and database bit image save
+    jQuery(function ($) {
+        $(document).ready(function () {
+            var readImage = function (file) {
+
+                var reader = new FileReader;
+                var image = new Image;
+
+                reader.readAsDataURL(file);
+                reader.onload = function (_file) {
+
+                    image.src = _file.target.result;
+                    image.onload = function () {
+
+                        var height = this.height;
+                        var width = this.width;
+                        var type = file.type;
+                        var size = ~~(file.size / 1024) + "KB";
+
+                        $("#targetImg").attr('src', _file.target.result);
+                        $("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+                        $("#imgPreview").show();
+
+                    };
+                };
+            };
+            $("#fileUpload").change(function () {
+                debugger;
+                var file = this.files;
+
+                if (file && file[0]) {
+                    readImage(file[0]);
+                }
+
+            });
+            $("#clearPreview").click(function () {
+                $("#fileUpload").val('');
+                $("#description").text('');
+                $("#imgPreview").hide();
+
+            });
+        });
+
+    });
+
+</script>
+
+

@@ -1,0 +1,120 @@
+﻿@model PointOfSaleManagementApp.ViewModels.PurchaseViewModel
+@{
+    ViewBag.Title = "PurchaseIn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-10" style="background-color: #22BAA0;">
+    <div class="row">
+        <h1 class="panel-title" style="margin: 5px; color: black; font-size: 25px;">
+            <b>Purchase Product</b>
+        </h1>
+        <div class="title">
+            <ol class="breadcrumb" style="background-color: #22BAA0; margin-bottom: 10px; font-size: 15px;">
+                <li><a href="#">Home</a></li>
+                <li class="active">Action"</li>
+            </ol>
+        </div>
+        <hr style="margin-top: 4px; margin-bottom: 5px;" />
+    </div>
+    <div class="row" style="background-color: white">
+        @using (Html.BeginForm("PurchaseIn", "Purchase", FormMethod.Post))
+        {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal" style="margin-top: 25px; margin-right: 8px;">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-md-10">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.InvoiceNo, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.EditorFor(model => model.InvoiceNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.InvoiceNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SupplierId, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(model => model.SupplierId, new SelectList(Model.Suppliers, "Id", "Name"), "Select Supplier", new {@class = "form-control"})
+                        @Html.ValidationMessageFor(model => model.SupplierId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script>
+    
+
+    $(document).ready(function () {
+        $("#categoryDD").change(function () {
+            var selectedCategoryId = $("#categoryDD").val();
+            var jsonData = { categoryId: selectedCategoryId };
+
+            $.ajax(
+                {
+                    url: "/Products/GetByCategory",
+                    data: jsonData,
+                    type: "POST",
+                    success: function (response) {
+                        $("#productDD").empty();
+                        var options = "<option >Select...</option>";
+                        $.each(response,
+                            function (key, product) {
+                                options += "<option value='" + product.Id + "'>" + product.Name + "</option>"
+                            });
+
+                        $("#productDD").append(options);
+
+                    },
+                    error: function (response) {
+
+                    }
+
+                });
+        });
+        var index = 0;
+        $("#addButton").click(function () {
+            var product = getProductForForm();
+            var tableBody = $("#tbProducts");
+
+
+            var indexCell = "<td style='display:none'><input type='hidden' name='StockInDetails.Index' value='" + index + "' /></td>";
+            var productNameCell = "<td><input type='hidden' name='StockInDetails[" + index + "].ProductId' value='" + product.ProductId + "' /> " + product.ProductName + "</td>";
+            var qtyCell = "<td><input type='hidden' name='StockInDetails[" + index + "].Qty' value='" + product.Qty + "' /> " + product.Qty + "</td>";
+            var tr = "<tr>" + indexCell + productNameCell + qtyCell + "</tr>";
+            tableBody.append(tr);
+            ++index;
+        });
+
+
+
+    });
+
+
+    function getProductForForm() {
+        var productId = $("#productDD").val();
+        var productName = $("#productDD option:selected").text();
+        var qty = $("#Qty").val();
+
+        return { ProductId: productId, ProductName: productName, Qty: qty }
+    }
+
+
+</script>
