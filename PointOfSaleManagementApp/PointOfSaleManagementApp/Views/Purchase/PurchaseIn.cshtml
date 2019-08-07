@@ -46,6 +46,128 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-10">
+                <div class="row" style="margin-left: 42px; margin-right: -310px;">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            @Html.Label("Category", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.DropDownList("CategoryDropDown", new SelectList(Model.Categories, "Id", "Name"), "Select Category", new { @class = "form-control", id = "categoryDD" })
+                                @Html.ValidationMessage("Category", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Products", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.DropDownList("ProductDropDown", null, new { @class = "form-control", id = "productDD" })
+                                @Html.ValidationMessage("Products", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Product Code", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.Editor("ProductCodeText", new { htmlAttributes = new { @class = "form-control",id="productCodeTB" } })
+                                @Html.ValidationMessage("Code", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <div class="col-md-offset-1 col-md-10" style="margin-left: 152px;">
+                                <input type="button" value="Added" id="addButton" class="btn btn-success" style="width: 200px; font-size: 15px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <table class="table table-bordered table-striped table-hover table-responsive">
+                    <thead>
+                        <tr>
+                            <th>SL</th>
+                            <th>Product(Code)</th>
+                            <th>Manufactured Date</th>
+                            <th>Expire Date</th>
+                            <th>Quantity</th>
+                            <th>Unit Price(Tk)</th>
+                            <th>Total Price(Tk)</th>
+                            <th>New MRP(Tk)</th>
+                            <th>Remark</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbProductPurchase">
+
+                    </tbody>
+                </table>
+            </div>
         </div>
         }
     </div>
@@ -59,7 +181,8 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-<script>
+<script src="~/scripts/apps/Purchase-product-add.js"></script>
+@*<script>
     
 
     $(document).ready(function () {
@@ -69,7 +192,7 @@
 
             $.ajax(
                 {
-                    url: "/Products/GetByCategory",
+                    url: "/Product/GetByCategory",
                     data: jsonData,
                     type: "POST",
                     success: function (response) {
@@ -89,32 +212,6 @@
 
                 });
         });
-        var index = 0;
-        $("#addButton").click(function () {
-            var product = getProductForForm();
-            var tableBody = $("#tbProducts");
 
+</script>*@
 
-            var indexCell = "<td style='display:none'><input type='hidden' name='StockInDetails.Index' value='" + index + "' /></td>";
-            var productNameCell = "<td><input type='hidden' name='StockInDetails[" + index + "].ProductId' value='" + product.ProductId + "' /> " + product.ProductName + "</td>";
-            var qtyCell = "<td><input type='hidden' name='StockInDetails[" + index + "].Qty' value='" + product.Qty + "' /> " + product.Qty + "</td>";
-            var tr = "<tr>" + indexCell + productNameCell + qtyCell + "</tr>";
-            tableBody.append(tr);
-            ++index;
-        });
-
-
-
-    });
-
-
-    function getProductForForm() {
-        var productId = $("#productDD").val();
-        var productName = $("#productDD option:selected").text();
-        var qty = $("#Qty").val();
-
-        return { ProductId: productId, ProductName: productName, Qty: qty }
-    }
-
-
-</script>

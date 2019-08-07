@@ -73,6 +73,12 @@ namespace PointOfSaleManagement.Repository.Repository
             return aStudent;
         }
 
+        public Category GetByID(int? categoryId)
+        {
+            Category aStudent = db.Categories.FirstOrDefault(c => c.Id == categoryId);
+            return aStudent;
+        }
+
         public bool IsCategoryNameDuplicate(string categoryName)
         {
             var aCategory = db.Categories.FirstOrDefault(c => c.Name == categoryName);

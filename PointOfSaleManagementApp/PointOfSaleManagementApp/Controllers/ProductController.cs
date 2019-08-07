@@ -32,7 +32,7 @@ namespace PointOfSaleManagementApp.Controllers
                 products.Code = productItem.Code;
                 products.Description = productItem.Description;
                 products.ReorderLevel = productItem.ReorderLevel;
-                products.Image = productItem.Image;
+                products.ImagePath = productItem.ImagePath;
                 products.Category = categorys.Where(x => x.Id == productItem.CategoryId).FirstOrDefault();
                 productVm.Add(products);
             }
@@ -127,22 +127,32 @@ namespace PointOfSaleManagementApp.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Add([Bind(Exclude = "Image")]ProductViewModel productVm)
+        public ActionResult Add(ProductViewModel productVm)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var imageData = GetImageData(productVm.Name);
-                    if (HasFile(imageData))
+                    //var imageData = GetImageData(productVm.Name);
+                    //Image file project folder save with unique file name
+                    if (productVm.ImageUpload != null)
                     {
-                        CreateProduct(productVm, imageData);
-                        ViewBag.SuccessMsg = "Customer Saved Successfully.";
+                        string fileName = Path.GetFileNameWithoutExtension(productVm.ImageUpload.FileName);
+                        string extension = Path.GetExtension(productVm.ImageUpload.FileName);
+                        fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                        productVm.ImagePath = "~/images/product/" + fileName;
+                        fileName = Path.Combine(Server.MapPath("~/images/product/"), fileName);
+                        productVm.ImageUpload.SaveAs(fileName);
                     }
-                    else
+                    if (productVm.ImagePath == "/images/No_Image_Available.jpg")
                     {
-                        ViewBag.FailMsg = "Vailed!";
+                        productVm.ImagePath = null;
+                    }
+                    var product = ProductCreate(productVm);
 
+                    if (_productManager.Add(product))
+                    {
+                        ViewBag.SuccessMsg = "Product Saved Successfully.";
                     }
                 }
                 else
@@ -169,10 +179,14 @@ namespace PointOfSaleManagementApp.Controllers
                 Code = product.Code,
                 ReorderLevel = product.ReorderLevel,
                 Description = product.Description,
-                Image = product.Image,
+                ImagePath = product.ImagePath,
                 CategoryId = product.CategoryId
             };
             ViewBag.CategoryId = new SelectList(_categoryManager.GetAll(), "Id", "Name", product.CategoryId);
+            if (product.ImagePath == null)
+            {
+                product.ImagePath = "~/images/No_Image_Available.jpg";
+            }
             return View(productEdit);
         }
         [HttpPost]
@@ -180,21 +194,26 @@ namespace PointOfSaleManagementApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var imageData = GetImageData(productVm.Name);
-                if (HasFile(imageData))
+                if (productVm.ImageUpload != null)
                 {
-                    CreateProduct(productVm, imageData);
-                    ViewBag.SuccessMsg = "Product Update Successfully.";
+                    string fileName = Path.GetFileNameWithoutExtension(productVm.ImageUpload.FileName);
+                    string extension = Path.GetExtension(productVm.ImageUpload.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssff") + extension;
+                    productVm.ImagePath = "~/images/product/" + fileName;
+                    fileName = Path.Combine(Server.MapPath("~/images/product/"), fileName);
+                    productVm.ImageUpload.SaveAs(fileName);
                 }
-                //if (product.ImageUpload != null)
-                //{
-                //    string fileName = Path.GetFileNameWithoutExtension(product.ImageUpload.FileName);
-                //    string extension = Path.GetExtension(product.ImageUpload.FileName);
-                //    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
-                //    product.ImagePath = "~/images/product/" + fileName;
-                //    product.ImageUpload.SaveAs(Path.Combine(Server.MapPath("~/images/product/"), fileName));
-                //}
-                
+
+                if (productVm.ImagePath == "/images/No_Image_Available.jpg")
+                {
+                    productVm.ImagePath = null;
+                }
+                var product = ProductCreate(productVm);
+
+                if (_productManager.Update(product))
+                {
+                    ViewBag.SuccessMsg = "Update Successfully.";
+                }
                 else
                 {
                     ViewBag.FailMsg = "Update Vailed!";
@@ -208,6 +227,21 @@ namespace PointOfSaleManagementApp.Controllers
 
             return View(productVm);
         }
+
+        private static Product ProductCreate(ProductViewModel productVm)
+        {
+            Product product = new Product();
+            product.Id = productVm.Id;
+            product.Name = productVm.Name;
+            product.Code = productVm.Code;
+            product.CategoryId = productVm.CategoryId;
+            product.ReorderLevel = productVm.ReorderLevel;
+            product.Description = productVm.Description;
+            product.ImagePath = productVm.ImagePath;
+            product.IsDeleted = false;
+            return product;
+        }
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -232,6 +266,31 @@ namespace PointOfSaleManagementApp.Controllers
             _product.Id = id;
             _productManager.Delete(_product);
             return RedirectToAction("Index");
+        }
+
+        public JsonResult GetByCategory(int? categoryId)
+        {
+            if (categoryId == null)
+            {
+                return null;
+            }
+
+            //var products = db.Products.Where(c => c.CategoryId == categoryId).ToList();
+            var products = _productManager.GetAll(categoryId);
+
+            return Json(products, JsonRequestBehavior.AllowGet);
+
+        }
+
+        public JsonResult GetByProductCode(int? productId)
+        {
+            if (productId==null)
+            {
+                return null;
+            }
+
+            var productCode = _productManager.GetByID(productId);
+            return Json(productCode, JsonRequestBehavior.AllowGet);
         }
     }
 }

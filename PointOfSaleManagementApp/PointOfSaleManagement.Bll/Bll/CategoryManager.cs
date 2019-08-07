@@ -32,6 +32,11 @@ namespace PointOfSaleManagement.Bll.Bll
             return _categoryRepository.GetByID(category);
         }
 
+        public Category GetById(int? categoryId)
+        {
+            return _categoryRepository.GetByID(categoryId);
+        }
+
         public bool IsCategoryNameDuplicate(string categoryName)
         {
             return _categoryRepository.IsCategoryNameDuplicate(categoryName);

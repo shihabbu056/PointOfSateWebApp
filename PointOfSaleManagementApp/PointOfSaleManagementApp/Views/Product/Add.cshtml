@@ -1,13 +1,13 @@
 ﻿@model PointOfSaleManagementApp.ViewModels.ProductViewModel
 
 @{
-                /**/
-
-                /**/
-
-                ViewBag.Title = "Add";
-                Layout = "~/Views/Shared/_Layout.cshtml";
+      ViewBag.Title = "Add";
+      Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<head>
+    <link href="~/Custom_Style_Sheet/Product_Add_Sheet.css" rel="stylesheet" />
+</head>
 <div class="col-md-10" style="background-color: #22BAA0;">
     <div class="row">
         <h1 class="panel-title" style="margin: 5px; color: black; font-size: 25px;">
@@ -22,10 +22,10 @@
         <hr style="margin-top: 4px; margin-bottom: 5px;" />
     </div>
     <div class="row" style="background-color: white">
-        @using (Html.BeginForm("Add", "Product", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("Add", "Product", FormMethod.Post, new { @class = "form-horizontal", enctype = "multipart/form-data" }))
         {
             @Html.AntiForgeryToken()
-            <div class="form-horizontal" style="margin-top: 25px; margin-right: 8px;">
+            <div class="form-horizontal" style="margin-top: 25px; margin-right: -140px;">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="col-md-7">
                     <div class="form-group">
@@ -65,19 +65,15 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="form-group" style="padding-right: 10%;">
-                        @Html.Label("Product Photo")
-                        <div id="imgPreview" class="thumbnail" style="display: block">
-                            <img class="img-responsive" id="targetImg" style="height: 200px; width: 200px" />
-                            <div class="caption">
-                                <a href="#" id="clearPreview" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
-                                <span id="description"></span>
-                            </div>
-                            @*<a href="#" class="btn btn-default" onclick="Uploadimage()">Upload</a>*@
+                    <div class="user-profile-image">
+                        <input type="file" class="hidden" id="BrowseImage" accept="image/*" name="ImageUpload"/>
+                        <img src="~/images/No_Image_Available.jpg" class="img-responsive" id="UserImage"/>
+                        <div class="upload-image">
+                            <img src="~/images/browse-image-cam.png" class="img-responsive"/>
                         </div>
-                    </div>
-                    <div class="btn btn-primary ">
-                        <input type="file" name="Image" id="fileUpload" onclick="FileUpload()" accept=".png,.jpg,.jpeg,.gif,.tif" />
+                        <div class="remove-image">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -110,6 +106,45 @@
         //});
 
         //Image Upload Second Method and Project image save and database bit image save
+
+        // Input File Upload to Image Box Trigger JQuery Code
+
+        $(document).ready(function() {
+            $('#UserImage').click(function() {
+                uploadClickEvent();
+            });
+            $('.upload-image').click(function () {
+                uploadClickEvent();
+            });
+
+            $('#BrowseImage').change(function() {
+                if (this.files && this.files[0]) {
+                    var fileReader = new FileReader();
+                    fileReader.readAsDataURL(this.files[0]);
+
+                    fileReader.onload = function(x) {
+                        $('#UserImage').attr('src', x.target.result);
+                    }
+                }
+            });
+
+            $('.remove-image').click(function () {
+
+                $('#UserImage').attr('src', "/images/No_Image_Available.jpg");
+
+            });
+
+        });
+
+        
+
+        function uploadClickEvent() {
+            $('#BrowseImage').trigger('click');
+        }
+
+        //Select $ Upload Image
+        
+
         jQuery(function ($) {
             $(document).ready(function () {
                 var readImage = function (file) {

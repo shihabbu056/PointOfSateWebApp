@@ -67,9 +67,20 @@ namespace PointOfSaleManagement.Repository.Repository
         {
             return db.Products.ToList();
         }
+
+        public List<Product> GetAll(int? categoryId)
+        {
+            return db.Products.Where(c => c.CategoryId == categoryId).ToList();
+        }
         public Product GetByID(Product product)
         {
             Product aProduct = db.Products.FirstOrDefault(c => c.Id == product.Id);
+            return aProduct;
+        }
+
+        public string GetByID(int? productId)
+        {
+            var aProduct = db.Products.Where(c => c.Code == productId).FirstOrDefault();
             return aProduct;
         }
     }

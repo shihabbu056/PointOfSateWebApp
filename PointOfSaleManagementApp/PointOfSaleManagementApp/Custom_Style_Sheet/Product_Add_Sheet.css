@@ -1,0 +1,69 @@
+﻿body {
+}
+
+.user-profile-image {
+    border: 1px solid #ededed;
+    border-radius: 3px;
+}
+
+    .user-profile-image img {
+        height: 300px;
+        cursor: pointer;
+    }
+
+    .user-profile-image:hover .upload-image {
+        transform: scaleY(1);
+    }
+
+    .user-profile-image .upload-image {
+        background-color: #242424;
+        opacity: 0.4;
+        width: 92%;
+        height: 50px;
+        position: absolute;
+        bottom: 0;
+        left: 15px;
+        cursor: pointer;
+        transform: scaleY(0);
+        transition: 0.3s;
+        transform-origin: bottom;
+    }
+        .user-profile-image .upload-image:before {
+            content: 'Change Photo';
+            color: #fff;
+            position: absolute;
+            top: 7px;
+            left: 110px;
+            opacity: 1;
+            font-size: 24px;
+        }
+        .user-profile-image .upload-image img {
+            height: 30px;
+            width: 30px;
+            color: #fff;
+            position: absolute;
+            top: 7px;
+            left: 70px;
+        }
+    .user-profile-image .remove-image {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        border: 2px solid #ddd;
+        padding: 10px;
+        cursor: pointer;
+        transform: scaleY(0);
+        transition: 0.3s;
+        transform-origin: top;
+    }
+.user-profile-image .remove-image .glyphicon-remove {
+    color: #cbcbcb;
+}
+
+        .user-profile-image .remove-image:hover .glyphicon-remove {
+            color: #808080;
+        }
+
+    .user-profile-image:hover .remove-image {
+        transform: scaleY(1);
+    }

@@ -17,8 +17,10 @@ namespace PointOfSaleManagementApp.ViewModels
         public DateTime Date { get; set; }
         [Display(Name = "Supplier Name")]
         public int? SupplierId { get; set; }
-        [NotMapped]
+        //public int CategoryId { get; set; }
+        //public int? ProductId { get; set; }
         public List<PurchaseDetail> PurchaseDetails { get; set; }
+        [NotMapped]
         public List<Supplier> Suppliers { get; set; }
         [NotMapped]
         public List<Category> Categories { get; set; }

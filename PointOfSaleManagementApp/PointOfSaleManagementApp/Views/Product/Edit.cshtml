@@ -1,13 +1,12 @@
 ﻿@model PointOfSaleManagementApp.ViewModels.ProductViewModel
 
 @{
-    /**/
-
-    /**/
-
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<head>
+    <link href="~/Custom_Style_Sheet/Product_Add_Sheet.css" rel="stylesheet" />
+</head>
 <div class="col-md-10" style="background-color: #22BAA0;">
     <div class="row">
         <h1 class="panel-title" style="margin: 5px; color: black; font-size: 25px;">
@@ -28,6 +27,7 @@
         <div class="form-horizontal" style="margin-top: 25px; margin-right: 8px;">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.ImagePath)
             <div class="col-md-7">
                 <div class="form-group">
                     @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "col-sm-2 control-label" })
@@ -66,23 +66,15 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="form-group" style="padding-right: 10%;">
-                    @Html.Label("Product Photo")
-                    <div id="imgPreview" class="thumbnail" style="display: block">
-                        @{
-                            var base64 = Convert.ToBase64String(Model.Image);
-                            var imgSrc = string.Format("data:image/gif;base64,{0}", base64);
-                        }
-                        <img src="@imgSrc" class="img-responsive" id="targetImg" style="height: 200px; width: 200px" />
-                        <div class="caption">
-                            <a href="#" id="clearPreview" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
-                            <span id="description"></span>
-                        </div>
-                        @*<a href="#" class="btn btn-default" onclick="Uploadimage()">Upload</a>*@
+                <div class="user-profile-image">
+                    <input type="file" class="hidden" id="BrowseImage" accept="image/*" name="ImageUpload" />
+                    <img src="@Url.Content(Model.ImagePath)" class="img-responsive" id="UserImage" />
+                    <div class="upload-image">
+                        <img src="~/images/browse-image-cam.png" class="img-responsive" />
                     </div>
-                </div>
-                <div class="btn btn-primary ">
-                    <input type="file" name="Image" id="fileUpload" onclick="FileUpload()" accept=".png,.jpg,.jpeg,.gif,.tif" />
+                    <div class="remove-image">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -99,6 +91,44 @@
 <script src="~/scripts/plugins/jquery-validation/jquery.validate.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 <script>
+
+
+    $(document).ready(function() {
+        $('#UserImage').click(function() {
+            uploadClickEvent();
+        });
+        $('.upload-image').click(function () {
+            uploadClickEvent();
+        });
+
+        $('#BrowseImage').change(function() {
+            if (this.files && this.files[0]) {
+                var fileReader = new FileReader();
+                fileReader.readAsDataURL(this.files[0]);
+
+                fileReader.onload = function(x) {
+                    $('#UserImage').attr('src', x.target.result);
+                }
+            }
+        });
+
+        $('.remove-image').click(function () {
+
+            $('#UserImage').attr('src', "/images/No_Image_Available.jpg");
+            $('#ImagePath').val("/images/No_Image_Available.jpg");
+
+        });
+
+    });
+
+        
+
+    function uploadClickEvent() {
+        $('#BrowseImage').trigger('click');
+    }
+
+
+
     //Image show function method use code
 
     //function ShowImagePreview(imageUploader, previewImage) {

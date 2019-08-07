@@ -27,9 +27,19 @@ namespace PointOfSaleManagement.Bll.Bll
         {
             return _productRepository.GetAll();
         }
+
+        public List<Product> GetAll(int? categoryId)
+        {
+            return _productRepository.GetAll(categoryId);
+        }
         public Product GetByID(Product product)
         {
             return _productRepository.GetByID(product);
+        }
+
+        public Product GetByID(int? productId)
+        {
+            return _productRepository.GetByID(productId);
         }
     }
 }
