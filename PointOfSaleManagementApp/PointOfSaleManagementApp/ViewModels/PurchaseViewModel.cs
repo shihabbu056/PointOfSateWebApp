@@ -11,6 +11,7 @@ namespace PointOfSaleManagementApp.ViewModels
     public class PurchaseViewModel
     {
         public int Id { get; set; }
+        [Required]
         public string InvoiceNo { get; set; }
         [Display(Name = "Purchase Date")]
         [DataType(DataType.Date)]

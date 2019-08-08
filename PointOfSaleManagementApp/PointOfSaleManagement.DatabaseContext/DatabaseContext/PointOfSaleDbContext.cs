@@ -15,6 +15,8 @@ namespace PointOfSaleManagement.DatabaseContext.DatabaseContext
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Purchase> Purchases { get; set; }
+        public DbSet<PurchaseDetail> PurchaseDetails { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer<PointOfSaleDbContext>(null);

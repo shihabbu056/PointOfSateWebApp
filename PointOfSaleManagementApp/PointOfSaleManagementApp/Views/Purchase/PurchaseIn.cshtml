@@ -66,7 +66,7 @@
                         <div class="form-group">
                             @Html.Label("Product Code", htmlAttributes: new { @class = "col-sm-2 control-label" })
                             <div class="col-sm-10">
-                                @Html.TextBox("Code", "", new { @class = "form-control", id="productCodeTB" })
+                                @Html.TextBox("Code", "", new { @class = "form-control", id="productCodeTB", @readonly="readonly" })
                                 @Html.ValidationMessage("Code", "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -117,8 +117,8 @@
                         <div class="form-group">
                             @Html.Label("Previous MRP(Tk)", htmlAttributes: new { @class = "col-sm-2 control-label" })
                             <div class="col-sm-10">
-                                @Html.TextBox("NewMrp", "", new { @class = "form-control" })
-                                @Html.ValidationMessage("NewMrp", "", new { @class = "text-danger" })
+                                @Html.TextBox("PreviousMrp", "", new { @class = "form-control" })
+                                @Html.ValidationMessage("PreviousMrp", "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-group">
@@ -150,23 +150,30 @@
             <div class="col-md-10">
                 <table class="table table-bordered table-striped table-hover table-responsive">
                     <thead>
-                        <tr>
-                            <th>SL</th>
-                            <th>Product(Code)</th>
-                            <th>Manufactured Date</th>
-                            <th>Expire Date</th>
-                            <th>Quantity</th>
-                            <th>Unit Price(Tk)</th>
-                            <th>Total Price(Tk)</th>
-                            <th>New MRP(Tk)</th>
-                            <th>Remark</th>
-                            <th>Action</th>
-                        </tr>
+                    <tr>
+                        <th>SL</th>
+                        <th>Product(Code)</th>
+                        <th>Manufactured Date</th>
+                        <th>Expire Date</th>
+                        <th>Quantity</th>
+                        <th>Unit Price(Tk)</th>
+                        <th>Total Price(Tk)</th>
+                        <th>New MRP(Tk)</th>
+                        <th>Remark</th>
+                        <th>Action</th>
+                    </tr>
                     </thead>
                     <tbody id="tbProductPurchase">
 
                     </tbody>
                 </table>
+            </div>
+            <div class="col-md-10">
+                <div class="form-group">
+                    <div class="col-md-offset-1 col-md-10" style="margin-left: 152px;">
+                        <input type="submit" value="Submit Purchase" class="btn btn-success" style="width: 200px; font-size: 15px;" />
+                    </div>
+                </div>
             </div>
         </div>
         }

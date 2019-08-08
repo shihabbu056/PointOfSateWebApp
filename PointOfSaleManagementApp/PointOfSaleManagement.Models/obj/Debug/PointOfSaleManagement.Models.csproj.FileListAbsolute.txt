@@ -42,3 +42,25 @@ G:\BITM All App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement
 G:\BITM All App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\obj\Debug\PointOfSaleManagement.Models.csproj.CopyComplete
 G:\BITM All App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\obj\Debug\PointOfSaleManagement.Models.dll
 G:\BITM All App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\obj\Debug\PointOfSaleManagement.Models.pdb
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\PointOfSaleManagement.Models.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\PointOfSaleManagement.Models.pdb
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\Microsoft.Web.Infrastructure.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\PointOfSaleManagement.Models.Contracts.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\System.Web.Helpers.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\System.Web.Mvc.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\System.Web.Razor.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\System.Web.WebPages.Deployment.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\System.Web.WebPages.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\System.Web.WebPages.Razor.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\PointOfSaleManagement.Models.Contracts.pdb
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\System.Web.Helpers.xml
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\System.Web.Mvc.xml
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\System.Web.Razor.xml
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\System.Web.WebPages.xml
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\System.Web.WebPages.Deployment.xml
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\bin\Debug\System.Web.WebPages.Razor.xml
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\obj\Debug\PointOfSaleManagement.Models.csprojAssemblyReference.cache
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\obj\Debug\PointOfSaleManagement.Models.csproj.CoreCompileInputs.cache
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\obj\Debug\PointOfSaleManagement.Models.csproj.CopyComplete
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\obj\Debug\PointOfSaleManagement.Models.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models\obj\Debug\PointOfSaleManagement.Models.pdb

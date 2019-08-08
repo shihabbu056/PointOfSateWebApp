@@ -36,3 +36,22 @@ G:\BITM All App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement
 G:\BITM All App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\obj\Debug\PointOfSaleManagement.Repository.csproj.CopyComplete
 G:\BITM All App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\obj\Debug\PointOfSaleManagement.Repository.dll
 G:\BITM All App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\obj\Debug\PointOfSaleManagement.Repository.pdb
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\PointOfSaleManagement.Repository.dll.config
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\PointOfSaleManagement.Repository.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\PointOfSaleManagement.Repository.pdb
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\EntityFramework.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\EntityFramework.SqlServer.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\PointOfSaleManagement.DatabaseContext.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\PointOfSaleManagement.Models.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\PointOfSaleManagement.Models.Contracts.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\PointOfSaleManagement.DatabaseContext.pdb
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\PointOfSaleManagement.DatabaseContext.dll.config
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\PointOfSaleManagement.Models.pdb
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\EntityFramework.xml
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\EntityFramework.SqlServer.xml
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\bin\Debug\PointOfSaleManagement.Models.Contracts.pdb
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\obj\Debug\PointOfSaleManagement.Repository.csprojAssemblyReference.cache
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\obj\Debug\PointOfSaleManagement.Repository.csproj.CoreCompileInputs.cache
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\obj\Debug\PointOfSaleManagement.Repository.csproj.CopyComplete
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\obj\Debug\PointOfSaleManagement.Repository.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Repository\obj\Debug\PointOfSaleManagement.Repository.pdb

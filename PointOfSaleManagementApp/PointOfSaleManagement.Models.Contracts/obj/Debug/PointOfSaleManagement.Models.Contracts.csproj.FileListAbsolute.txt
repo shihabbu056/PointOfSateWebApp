@@ -4,3 +4,9 @@ G:\BITM All App\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\
 G:\BITM All App\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\obj\Debug\PointOfSaleManagement.Models.Contracts.csproj.CoreCompileInputs.cache
 G:\BITM All App\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\obj\Debug\PointOfSaleManagement.Models.Contracts.dll
 G:\BITM All App\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\obj\Debug\PointOfSaleManagement.Models.Contracts.pdb
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\bin\Debug\PointOfSaleManagement.Models.Contracts.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\bin\Debug\PointOfSaleManagement.Models.Contracts.pdb
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\obj\Debug\PointOfSaleManagement.Models.Contracts.csprojAssemblyReference.cache
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\obj\Debug\PointOfSaleManagement.Models.Contracts.csproj.CoreCompileInputs.cache
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\obj\Debug\PointOfSaleManagement.Models.Contracts.dll
+F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Models.Contracts\obj\Debug\PointOfSaleManagement.Models.Contracts.pdb
