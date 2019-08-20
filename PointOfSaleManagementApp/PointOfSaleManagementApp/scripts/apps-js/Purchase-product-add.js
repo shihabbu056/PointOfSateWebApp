@@ -6,7 +6,7 @@
 
         $.ajax(
             {
-                url: "/Product/GetByCategory",
+                url: "/Product/GetByProduct",
                 data: jsonData,
                 type: "POST",
                 success: function (response) {
@@ -59,6 +59,48 @@
             });
     });
 
+    $("#productDD").change(function() {
+        var selectedProduct = $("#productDD").val();
+        var jsonData = { productId: selectedProduct };
+        $.ajax({
+            url: "/Purchase/GetByPurchaseDetail",
+            data: jsonData,
+            type: "POST",
+            success: function(purchaseDetail) {
+                $("#previousCostPrice").val("" + purchaseDetail.UnitPrice);
+                $("#PreviousMrp").val("" + purchaseDetail.NewMrp);
+            },
+            error: function(response) {
+
+            }
+        });
+    });
+
+
+    //var quantity = $("#Quantity").val();
+    //var unitPrice = $("#UnitPrice").val();
+    //var totalPrice = quantity * unitPrice;
+
+    $("#UnitPrice").change(function() {
+        var quantity = $("#Quantity").val();
+        var unitPrice = $("#UnitPrice").val();
+        var totalPrice = quantity * unitPrice;
+        $("#totalPrice").val("" + totalPrice);
+    });
+
+
+    //$('#addButton').click(() => {
+    //    $("#manufacturedDate").val("");
+    //    $("#expireDate").val("");
+    //    $("#quantity").val("");
+    //    $("#unitPrice").val("");
+    //    $("#totalPrice").val("");
+    //    $("#previousCostPrice").val("");
+    //    $("#previousMrp").val("");
+    //    $("#newMrp").val("");
+
+    //});
+
 
     // Many Product Add Code in Table
     var index = 0;
@@ -72,11 +114,28 @@
 
         index++;
         sl++;
+
+
+        //Text Box Empty.
+        $("#ManufacturedDate").val("");
+        $("#ExpireDate").val("");
+        $("#Quantity").val("");
+        $("#UnitPrice").val("");
+        $("#NewMrp").val("");
+        $("#Remarks").val("");
+        $("#totalPrice").val("");
     });
 
-    $('#iDelete').click(() => {
-       row.
+    //$('#iDelete').click(() => {
+       
+    //    $(this).closest('tr').remove();
+    //    return false;
 
+    //});
+
+    $(document).on('click', '#iDelete', function () {
+        $(this).closest('tr').remove();
+        return false;
 
     });
 
@@ -86,7 +145,7 @@
     // Product Details Added Value
 
     function getProductForForm() {
-        var sl = "";
+        sl = "";
         var productId = $("#productDD").val();
         //var productName = $("#productDD option:selected").text();
         var productCode = $("#productCodeTB").val();
@@ -105,7 +164,7 @@
 
     function getRowForProductPurchase(productPurchase) {
 
-        var codeHidden = "<input type='hidden' name='PurchaseDetails[" + index + "].Code' value='" + productPurchase.Code + "' />";
+        var productHidden = "<input type='hidden' name='PurchaseDetails[" + index + "].ProductId' value='" + productPurchase.ProductId + "' />";
         var manufacturedDateHidden = "<input type='hidden' name='PurchaseDetails[" + index + "].ManufacturedDate' value='" + productPurchase.ManufacturedDate + "' />";
         var expireDateHidden = "<input type='hidden' name='PurchaseDetails[" + index + "].ExpireDate' value='" + productPurchase.ExpireDate + "' />";
         var quantityHidden = "<input type='hidden' name='PurchaseDetails[" + index + "].Quantity' value='" + productPurchase.Quantity + "' />";
@@ -116,7 +175,7 @@
 
         var tr = "<tr>";
         var slCell = "<td>" + sl + "</td>";
-        var codeCell = "<td>" + codeHidden + productPurchase.Code + "</td>";
+        var codeCell = "<td>" + productHidden + productPurchase.Code + "</td>";
         var manufacturedDateCell = "<td>" + manufacturedDateHidden + productPurchase.ManufacturedDate + "</td>";
         var expireDateCell = "<td>" + expireDateHidden + productPurchase.ExpireDate + "</td>";
         var quantityCell = "<td>" + quantityHidden + productPurchase.Quantity + "</td>";
@@ -124,12 +183,14 @@
         var totalPriceCell = "<td>" + totalPriceHidden + productPurchase.TotalPrice + "</td>";
         var newMrpCell = "<td>" + newMrpHidden + productPurchase.NewMrp + "</td>";
         var remarksCell = "<td>" + remarksHidden + productPurchase.Remarks + "</td>";
-        var actionCell = "<td> <input type='button' value='Delete' name='Delete' id='iDelete'/><input type='button' value='Edite' name='Edite'/> </td>"
-        actionCell[index];
+        var actionCell = "<td> <input type='button' value='Delete' name='Delete' id='iDelete'/><input type='button' value='Edite' name='Edite'/> </td>";
+        //actionCell[index];
         var endTr = "</tr>";
         var row = tr + slCell + codeCell + manufacturedDateCell + expireDateCell + quantityCell + unitPriceCell + totalPriceCell + newMrpCell + remarksCell + actionCell + endTr;
 
+
         return row;
+
     }
 
 

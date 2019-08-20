@@ -1,0 +1,159 @@
+﻿@model PointOfSaleManagementApp.ViewModels.SaleViewModel
+@{
+    ViewBag.Title = "SaleOut";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12" style="background-color: #22BAA0;">
+    <div class="row">
+        <h1 class="panel-title" style="margin: 5px; color: black; font-size: 25px;">
+            <b>Product Sale</b>
+        </h1>
+        <div class="title">
+            <ol class="breadcrumb" style="background-color: #22BAA0; margin-bottom: 10px; font-size: 15px;">
+                <li><a href="#">Home</a></li>
+                <li class="active">Action"</li>
+            </ol>
+        </div>
+        <hr style="margin-top: 4px; margin-bottom: 5px;" />
+    </div>
+    <div class="row" style="background-color: white">
+
+        @using (Html.BeginForm("SaleOut", "Sale", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+        <div class="form-horizontal" style="margin-top: 25px; margin-right: 8px;">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SaleInvoice, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.SaleInvoice, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.SaleInvoice, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Customer Phone", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.Editor("Contact", new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessage("Contact", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            @Html.Label("LoyaltyPoint", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.Editor("LoyaltyPoint", new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessage("LoyaltyPoint", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.Label("Products", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.DropDownList("ProductDropDown", null, new { @class = "form-control", id = "productDD" })
+                                @Html.ValidationMessage("Products", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Available Quantity", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.Editor("AvailableQuantity", new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessage("AvailableQuantity", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Quantity", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.Editor("Quantity", new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessage("Quantity", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Unit Price(Tk)", htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.Editor("UnitPrice", new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessage("UnitPrice", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-1 col-md-10" style="margin-left: 152px;">
+                                <input type="button" value="Add" id="addButton" class="btn btn-success" style="width: 200px; font-size: 15px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <table class="table table-bordered table-striped table-hover table-responsive">
+                            <thead>
+                            <tr>
+                                <th>SL</th>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Unit Price(Tk)</th>
+                                <th>Total Price(Tk)</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tbProductPurchase"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.GrandTotal, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.GrandTotal, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.GrandTotal, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Discount, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.Discount, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Discount, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DiscountAmount, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.DiscountAmount, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DiscountAmount, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.PayableAmount, htmlAttributes: new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.EditorFor(model => model.PayableAmount, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PayableAmount, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-1 col-md-10" style="margin-left: 152px;">
+                                <input type="submit" value="Submit Sale" class="btn btn-success" style="width: 200px; font-size: 15px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+

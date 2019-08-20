@@ -268,7 +268,7 @@ namespace PointOfSaleManagementApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public JsonResult GetByCategory(int? categoryId)
+        public JsonResult GetByProduct(int? categoryId)
         {
             if (categoryId == null)
             {

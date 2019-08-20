@@ -134,19 +134,11 @@
 
             });
 
-        });
+            function uploadClickEvent() {
+                $('#BrowseImage').trigger('click');
+            }
 
-        
-
-        function uploadClickEvent() {
-            $('#BrowseImage').trigger('click');
-        }
-
-        //Select $ Upload Image
-        
-
-        jQuery(function ($) {
-            $(document).ready(function () {
+            jQuery(function ($) {
                 var readImage = function (file) {
 
                     var reader = new FileReader;
@@ -185,9 +177,13 @@
                     $("#imgPreview").hide();
 
                 });
+
             });
 
         });
+
+        //Select $ Upload Image
+        
 
     </script>
 

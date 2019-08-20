@@ -26,5 +26,12 @@ namespace PointOfSaleManagement.Repository.Repository
 
             return false;
         }
+
+        public PurchaseDetail GetByPurchaseDetail(int? productId)
+        {
+            var aPurchaseDetail = db.PurchaseDetails.FirstOrDefault(c => c.Id == productId);
+
+            return aPurchaseDetail;
+        }
     }
 }

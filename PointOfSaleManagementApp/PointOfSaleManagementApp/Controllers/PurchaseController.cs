@@ -44,5 +44,15 @@ namespace PointOfSaleManagementApp.Controllers
             ViewBag.ProductDropDown = new SelectListItem[] {new SelectListItem() {Value = "", Text = "Select..."}};
             return View(model);
         }
+        public JsonResult GetByPurchaseDetail(int? productId)
+        {
+            if (productId == null)
+            {
+                return null;
+            }
+
+            var purchaseDetail = _purchaseManager.GetByPurchaseDetail(productId);
+            return Json(purchaseDetail, JsonRequestBehavior.AllowGet);
+        }
     }
 }

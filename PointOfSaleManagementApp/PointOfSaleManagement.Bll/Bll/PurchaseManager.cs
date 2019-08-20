@@ -16,5 +16,10 @@ namespace PointOfSaleManagement.Bll.Bll
         {
             return _purchaseRepository.Add(purchase);
         }
+
+        public PurchaseDetail GetByPurchaseDetail(int? productId)
+        {
+            return _purchaseRepository.GetByPurchaseDetail(productId);
+        }
     }
 }

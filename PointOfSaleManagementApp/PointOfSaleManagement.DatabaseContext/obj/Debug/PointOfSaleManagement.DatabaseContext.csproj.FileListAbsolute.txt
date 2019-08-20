@@ -56,3 +56,4 @@ F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.Dat
 F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.DatabaseContext\obj\Debug\PointOfSaleManagement.DatabaseContext.dll
 F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.DatabaseContext\obj\Debug\PointOfSaleManagement.DatabaseContext.pdb
 F:\BITM App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.DatabaseContext\obj\Debug\PointOfSaleManagement.DatabaseContext.Migrations.purchase_model_added.resources
+G:\BITM All App\PointOfSateWebApp\PointOfSaleManagementApp\PointOfSaleManagement.DatabaseContext\obj\Debug\PointOfSaleManagement.DatabaseContext.Migrations.purchase_model_added.resources
